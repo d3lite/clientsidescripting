@@ -1,0 +1,56 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 2, 2017, 5:57:35 PM
+    Author     : David
+*/
+
+body{
+    background: skyblue;
+    padding: 10px;
+    min-width: 100%;
+    height: 100%;
+
+
+}
+
+    
+
+h1{
+
+    font-size: 30px;
+    border: grey;
+ 
+    
+
+
+
+}
+p{
+    color: black;
+    font-size: 18px;
+    
+
+}
+
+.btn{
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+button {background-color: #f44336;} /* Red */ 
+button:hover {background: #da190b;}
+.BlueRanger {background-color: blue;} /* Red */ 
+.BlueRanger:hover {background: #da190b;}
+.container{
+  margin: 10px auto;
+  width: 720px;
+}
+

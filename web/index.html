@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lazy Cat</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+
+
+    </head>
+    <body ng-app=""> 
+        <div  id="container">
+            <div ng-include src="'top.html'"> </div> <!-- will insert "top.html" code here --> 
+
+            <div id="content">
+                <h1>Welcome</h1>
+
+                <div class="span33">
+                    <br/>
+                    <img src="pics/nita1.jpg" alt="" />
+                </div>
+                <div>
+                    <p>
+                        Hi I'm Philadelphia's laziest cat. To adopt lazy kitties like me,  <a href='http://www.kawaiikittycafe.com/'> visit here</a>
+                    </p>
+                    <p>
+                        History of cats:
+                        cats have always been a source of fascination for mankind throughout history. Today cats have become one of the world's most popular pets perfectly suited to the lifestyle of our day. They are beautiful, enigmatic and easy-to-care for pets. But where and when did the domestic cat originate? This page will give you some insight into this question.
+
+                        It has been about 4000 years since the first cats were domesticated. The Ancient Egyptians were the first to keep and use cats to control vermin and other pests to protect stores of food. In Ancient Egypt, the cat was revered as a hunter and worshiped as gods and goddesses. The ancient Egyptians imposed the death penalty for killing cats and cats were also mummified before being buried.
+
+                        Other ancient civilisations later began to domesticate the cat and took tame felines to Italy where they slowly spread around Europe. Eventually, they arrived in the New World with the Pilgrims. The shorthaired domestic cat spread across the world from Egypt while longhaired cats came later from Turkey and Iran. The domestic cat also spread from India to China and Japan.
+
+                        Except for a short period of persecution in the Middle Ages when cats were associated with the devil, by the eighteenth century cats had become popular household pets world wide.
+
+                        The wild cats of today such as Lions and Tigers descended from early carnivores called miacids. From there the modern wild cat developed into three main types; the European wild cat, the African wild cat and the Asiatic desert cat. The domestic cat is thought to have evolved from the African wild cat because of its tabby markings.
+
+                        Domestic cats today still take many characteristics from their wild ancestors. The arresting eyes, body shape, feeding and grooming habits are the same along with the ability to pounce into action at any given moment. It is this link that makes the domestic cat so fascinating around the world.
+
+                        The non-pedigree domestic cat, the Moggie is the most popular house pet today with the black and white Moggie being the most popular followed by the black cat followed by the Tabby cat. There are also 36 recognised breeds of pedigree cats around the world with the Siamese cat being the most popular. Most homes today that keep pets have at least one cat in residence.
+                    </p>       
+                </div>
+                <div ng-include src="'bottom.html'"> </div> 
+            </div>
+
+        </div>
+    </div> <!-- container -->
+
+</body>
+</html>

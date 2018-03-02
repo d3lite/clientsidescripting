@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Tutorial: Power Ranger Thumbnail</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="prRanger.css">
+    </head>
+  
+        
+    
+
+    <body>
+        <h1> Tutorial: JS Framework for enhanced Thumbnail</h1>
+
+        <p> Click on the image as it will open a new link to the ranger's bio
+        </p>
+        <p>To learn more about thumbnails etc: <a href='https://www.w3schools.com/howto/howto_css_thumbnail.asp'>https://www.w3schools.com/howto/howto_css_thumbnail.asp </a> </p>
+
+
+        <span id="redranger">
+        </span>
+
+        <span id="pinkranger"></span>
+
+        <span id="yellowranger"></span>
+
+        <span id="blueranger"></span>
+
+        <span id="blackranger"></span>
+
+        <div> 
+            <select id="newImageSelect" onchange="changeImage()">
+                <option value="pics/redranger.jpg"> Red Ranger</option>
+                <option value="pics/redhelmets.png">Red Ranger's Helmet</option>
+
+            </select>   
+            <select id="newImageSelect2" onchange="changeImage()">
+                <option value="pics/pinkranger.jpg"> Pink Ranger</option>
+                <option value="pics/pinkhelmets.png">Pink Ranger's Helmet</option>
+
+            </select> 
+        </select>   
+        <select id="newImageSelect3" onchange="changeImage()">
+            <option value="pics/yellowranger.jpg"> Yellow Ranger</option>
+            <option value="pics/yellowhelmets.png">Yellow Ranger's Helmet</option>
+
+        </select> 
+    </select>   
+    <select id="newImageSelect4" onchange="changeImage()">
+        <option value="pics/blueranger.jpg"> Blue Ranger</option>
+        <option value="pics/bluehelmets.png">Blue Ranger's Helmet</option>
+
+    </select> 
+</select>   
+<select id="newImageSelect5" onchange="changeImage()">
+    <option value="pics/blackranger.jpg"> Black Ranger</option>
+    <option value="pics/blackhelmets.png">Black Ranger's Helmet</option>
+    
+</select> 
+<div>
+    <input type='button' value='Change Pink Ranger URL to something else' onclick='changeURL()'>
+     <input type = "text" id="URLChange" value="http://www.google.com">
+</div>
+
+</div>
+
+<p>Properties:
+<li> Image URL </li>
+<li> Image Width</li>
+<li> Image Height </li>
+<li> Background Color </li>
+<li> Padding</li>
+<li> Personal Info(link for the thumbnail) </li>
+
+
+</p>
+<p>
+    JS code that set the above properties in the framework:
+<p>
+     
+</p>
+
+<pre>
+        //default values
+        params.imgUrl = params.imgUrl || "pics/redranger.jpg";
+        params.imgWidth = params.imgWidth || 100;
+        params.imgHeight = params.imgHeight || 200;
+        params.backgroundColor = params.backgroundColor || "red";
+        params.padding = params.padding || "10px";
+        params.personInfo = params.personInfo || "http://powerrangers.wikia.com/wiki/Jason_Lee_Scott";
+        
+</pre>
+
+</p>
+<p>
+    How to place the tag element and make it a thumbnail ( example in html):
+<pre>
+                &lta target="_blank" href="http://powerrangers.wikia.com/wiki/Kimberly_Ann_Hart">
+                 &ltimg src="pics/pinkranger.jpg" alt="Pink Ranger">
+                &lt/a>
+</pre>
+
+
+</p>
+</div>
+<div class='code'>
+    <p>
+        In the framework, you should create a string builder that 
+        is the same as the element tags for the thumbnail
+    </p>
+    <p>
+
+    <pre>
+                 function display(){
+            var str ="&lta target= '_blank' href='"+personInfo+"'/>";
+          
+            str+="&ltimg src='" + imgUrl + "' width:'" + imgWidth + ";' height: '" + imgHeight +";'/>";
+            
+            +"&lt/a>";
+            
+            prObj.innerHTML = str;
+            
+        }
+
+    </pre>
+
+</p>
+<p>
+    JS code in the HTML page to create the power ranger object:
+<pre>
+                var firstRangerObj = prFW.MakePR({
+                
+                id: "redranger"  
+            });
+            
+                var secondRangerObj = prFW.MakePR({
+        id: "pinkranger",
+        imgUrl: "pics/pinkranger.jpg",
+        personInfo: "http://powerrangers.wikia.com/wiki/Kimberly_Ann_Hart",
+        backgroundColor: "pink"
+
+    });
+    var thirdRangerObj = prFW.MakePR({
+        id: "yellowranger",
+        imgUrl: "pics/yellowranger.jpg",
+        personInfo: "http://powerrangers.wikia.com/wiki/Trini_Kwan",
+        backgroundColor: "yellow"
+
+    });
+    var fourthRangerObj = prFW.MakePR({
+        id: "blueranger",
+        imgUrl: "pics/blueranger.jpg",
+        personInfo: "http://powerrangers.wikia.com/wiki/Billy_Cranston",
+        backgroundColor: "blue"
+
+    });
+    var fifthRangerObj = prFW.MakePR({
+        id: "blackranger",
+        imgUrl: "pics/blackranger.jpg",
+        personInfo: "http://powerrangers.wikia.com/wiki/Zack_Taylor",
+        backgroundColor: "black"
+
+    });
+
+            
+</pre>
+</p>
+<p>
+    Here's the JS code in HTML that changes the image of each ranger.
+
+<pre>
+    
+function changeImage() {
+                // get a reference to the select tag
+                var selectTag = $("newImageSelect");
+                var selectTag2 = $("newImageSelect2");
+                var selectTag3 = $("newImageSelect3");
+                var selectTag4 = $("newImageSelect4");
+                var selectTag5 = $("newImageSelect5");
+
+
+
+             
+                firstRangerObj.setImage(selectTag.value);
+                secondRangerObj.setImage(selectTag2.value);
+                thirdRangerObj.setImage(selectTag3.value);
+                fourthRangerObj.setImage(selectTag4.value);
+                fifthRangerObj.setImage(selectTag5.value);
+                
+           
+            }
+
+
+
+
+</pre>
+</p>
+<p>
+    The ID for this image is #redrangerImage
+    .
+</p>
+
+<div id ='redrangerImage'>
+    
+    <img src='pics/heroredranger.png'>
+    
+</div>
+<p>
+    The ID for this image is #pinkrangerImage
+    .
+</p>
+
+        
+<div id ='pinkrangerImage'>
+    
+    <img src='pics/heropinkranger.jpg'>
+    
+</div>
+<p>
+    The ID for this image is #yellowrangerImage
+    .
+</p>
+
+        
+<div id ='yellowrangerImage'>
+    
+    <img src='pics/heroyellowranger.png'>
+    
+</div>
+<p>
+    
+   Here's the code in the Framework that changes the URL:
+<pre>
+      prObj.changeURL= function(newURL){
+            
+            personInfo = newURL;
+            display();
+        }   
+        
+
+</pre>
+    
+</p>
+    
+ 
+
+
+
+</div>
+
+
+
+
+
+<script src="prFW.js"></script>
+<script>
+            
+    
+    "use strict";
+              function $(id) {
+                  return document.getElementById(id);
+              }
+
+
+              // create framework object
+              var prFW = MakePRFW();
+
+              var firstRangerObj = prFW.MakePR({
+                  id: "redranger"
+              });
+
+              var secondRangerObj = prFW.MakePR({
+                  id: "pinkranger",
+                  imgUrl: "pics/pinkranger.jpg",
+                  personInfo: "http://powerrangers.wikia.com/wiki/Kimberly_Ann_Hart",
+                  backgroundColor: "pink"
+
+              });
+              var thirdRangerObj = prFW.MakePR({
+                  id: "yellowranger",
+                  imgUrl: "pics/yellowranger.jpg",
+                  personInfo: "http://powerrangers.wikia.com/wiki/Trini_Kwan",
+                  backgroundColor: "yellow"
+
+              });
+              var fourthRangerObj = prFW.MakePR({
+                  id: "blueranger",
+                  imgUrl: "pics/blueranger.jpg",
+                  personInfo: "http://powerrangers.wikia.com/wiki/Billy_Cranston",
+                  backgroundColor: "blue"
+
+              });
+              var fifthRangerObj = prFW.MakePR({
+                  id: "blackranger",
+                  imgUrl: "pics/blackranger.jpg",
+                  personInfo: "http://powerrangers.wikia.com/wiki/Zack_Taylor",
+                  backgroundColor: "black"
+
+              });
+
+              function changeImage() {
+                  // get a reference to the select tag
+                  var selectTag = $("newImageSelect");
+                  var selectTag2 = $("newImageSelect2");
+                  var selectTag3 = $("newImageSelect3");
+                  var selectTag4 = $("newImageSelect4");
+                  var selectTag5 = $("newImageSelect5");
+
+
+                  // this is the text that is currently selected by the user
+                  var selectedText = selectTag.options[selectTag.selectedIndex].text;
+
+                  console.log("selected Text is " + selectedText + " and selected value is " + selectTag.value);
+
+
+
+                  firstRangerObj.setImage(selectTag.value);
+                  secondRangerObj.setImage(selectTag2.value);
+                  thirdRangerObj.setImage(selectTag3.value);
+                  fourthRangerObj.setImage(selectTag4.value);
+                  fifthRangerObj.setImage(selectTag5.value);
+
+
+              }
+              
+              function changeURL(){
+                  secondRangerObj.changeURL($("URLChange").value);
+              }
+              
+             
+                       
+           
+            
+
+
+</script>
+
+
+
+
+</body>
+</html>

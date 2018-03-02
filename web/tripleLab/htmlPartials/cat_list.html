@@ -1,0 +1,59 @@
+<h2>Cat List &nbsp; 
+    <span style="font-size:0.6em;"> 
+        <a href="#/insertCat" style="text-decoration: none; color: rgba(161, 138, 203, 0.8);" data-ng-show="isLoggedOn">(Insert New)</a>
+        &nbsp; &nbsp;
+        (make all links work on your "Other" Data List page)
+    </span>
+</h2>
+<h2>{{isLoggedOn ? 'Logged On' : 'Logged Off'}}</h2>
+<div class="searchContainer">
+    <span class="searchLabel"> Search Field: </span>
+    <input ng-model="query" type="text" class="searchField"/>
+</div>
+<table>
+    <tr> 
+        <th></th>
+        <th data-ng-show="isLoggedOn"></th>
+        <th data-ng-show="isLoggedOn"></th>
+       <th><a href="" ng-click="sortField = 'catIdNum'; reverse = !reverse">Cat Id</a></th>
+        <th style="text-align: left"><a href="" ng-click="sortField = 'cat_type'; reverse = !reverse">Cat Type</a></th>
+        <th><a href="" ng-click="sortField = 'catAgeNum'; reverse = !reverse">Cat Age</a></th>
+
+        <th><a href="" ng-click="sortField = 'cat_mood'; reverse = !reverse">Cat Mood</a></th>
+        <th style="color:white;">Cats</th>
+    </tr>
+    <tr ng-repeat="cat in cats| filter:query | orderBy:sortField:reverse">
+ 
+        <td>
+            <a href="#/show/{{cat.cat_id}}"><img src="icons/view.png"></a>
+        </td>
+        <td data-ng-show="isLoggedOn">
+            <a href="#/update/{{cat.cat_id}}"><img src="icons/update.png" alt=""></a>
+        </td>
+        <td data-ng-show="isLoggedOn">
+            <a href="#/delete/{{cat.cat_id}}"><img src="icons/delete.png"></a>
+        </td> 
+        <!--<td style="text-align:center; display: none;">{{planet.planetId}}</td>-->
+        <td style="text-align:center">{{cat.cat_id}}</td>
+        <td>{{cat.cat_type}}</td>
+        <td>{{cat.cat_age}}</td>
+       
+        <td>{{cat.cat_mood}}</td>
+        <td><img src="{{cat.catimg_url}}" width="80" alt=""></td>
+        <!--
+        countryId: "1",
+        countryName: "Afghanistan",
+        flagAbbrev: "afgh",
+        flagURL: "http://jpgraph.net/download/manuals/chunkhtml/images/flag-afgh.png"
+        -->
+
+    </tr>
+</table>
+
+<ul>
+    <li>
+        Click column headings to sort.
+    </li>
+</ul>
+
+{{errorMsg}}

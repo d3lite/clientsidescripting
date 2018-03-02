@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- It's good practice for modern web design to include these meta tags  -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Responsive Design</title>
+
+        <style type="text/css">
+            html, body {
+                margin: 0;  /* remove any default spacing */
+                padding: 0; /* remove any default spacing */
+                min-width: 320px; /* don't want to the page titles to wrap */
+
+            }
+            h1 { /* "hero style" page titles */
+                font-size: 3.0em; 
+                padding-left: 40%;
+                font-size:25px;
+
+            }
+            #nav {  /* without this there is space above the nav bar */
+                margin-top: 0px; 
+            }
+            #page1 p{
+                padding-left: 25%;
+            }
+
+
+            .sng-page {
+                min-height: 500px; /* fallout for older browsers */
+                min-height: 100vh;
+                padding: 0px 1.0em;   /* top/bottom   then   left/right */
+                padding-bottom: 56px; /* height of footer, make space for fixed footer */
+                border-top: 1px solid blue; /* page divider */
+            }
+
+            #footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                z-index: 2;
+                width: 100%;
+                background-color: black;
+                color:#CCCCCC;
+                letter-spacing: 0.1ex;
+                text-align: center;
+                font-weight: bold;
+                font-size: 18px;
+                padding: 12px;
+            }
+
+            #footer a:hover {
+                color: white;
+            }
+
+            #video {
+                margin-left: 25%;
+            }
+
+            /* colors to differentiate the pages */
+            #page1 {
+                background: red; /* For browsers that do not support gradients */
+                background: -webkit-radial-gradient(lightblue 5%, grey 15%, lightblue 50%); /* Safari 5.1-6.0 */
+                background: -o-radial-gradient(lightblue 5%, grey 15%, lightblue 50%); /* For Opera 11.6-12.0 */
+                background: -moz-radial-gradient(lightblue 5%,grey 15%, lightblue 50%); /* For Firefox 3.6-15 */
+                background: radial-gradient(lightblue 5%, grey 15%, lightblue 50%); /* Standard syntax */
+
+            }
+            #page2 {
+               
+
+            }
+            #page3 {
+                background: red; /* For browsers that do not support gradients */
+                background: -webkit-linear-gradient(white, grey); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(white, grey); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(white, grey); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(white, grey); /* Standard syntax */
+            }
+
+           
+     
+            img{
+                width: 100%;
+                border-radius: 5px;
+            } 
+            /* ------------ Mobile and Common Styles --------------- */
+            body { 
+                margin: 0; padding: 0; /* avoid white line just inside browser window */
+
+                /* set up default text properties - most commonly used */
+                font-family: Tahoma, 'Arial Black', san-serif;
+                font-size: 16px;
+                background-color: #FFFFCC;
+                line-height: 1.5em;
+            }
+             #titleNav {
+                color:black;
+                font-family: serif;
+                background-color:lightblue;
+                height: 79px;
+            }
+            #title {
+                padding-top:10px;
+                padding-left:8px;
+                font-size:28px;
+                font-weight:bold;
+                letter-spacing: 1.5px;
+                float:left;
+            }
+            #nav {
+
+                /* make this absolute (instead of float) 
+                so that it doesnt push down the content
+                when the icon is pressed and the entries 
+                show below */
+                position:fixed;
+                top:0px;
+                right:0px;
+                z-index:2;
+
+                font-size:22px;
+                letter-spacing: 1px;
+                font-weight:bold;
+                text-align:center;
+                background-color:lightblue;
+            }
+            #navGroup {
+                display: none; 
+            }
+            #navIcon {
+                padding-top: 18px;
+                width:100px;
+                box-sizing: border-box;
+            }
+            .navLink {
+                width:100px;
+                border-bottom: thin solid gray;
+                padding: 4px;
+                display: block;
+                box-sizing: border-box;
+            }
+            #navGroup a{
+                text-decoration: none;
+                color: black;
+            }
+
+
+            .container {
+                width: 100%;
+                box-sizing: border-box; /* gets rid of horizontal scroll bar, counts padding and border in box size */
+                /* border:thin solid blue; */
+            }
+
+            .pageTitle {
+                padding: 10px 15px; /* 1st is top/bottom, 2nd is left/right */
+                background-color: gold;
+                color: black;
+                margin-bottom: -3px; /* cover up white space between title and content */
+                font-size: 1.3em;
+                line-height: 2.5em;
+            }
+
+            .one-to-three {
+                /* border:thin solid red; */
+                width: 100%;
+                padding: 15px;
+                background-color: #334411;
+                color: white;
+                margin: 5px 0%;  /* 1st is top/bottom, 2nd is left/right */
+                box-sizing: border-box; /* gets rid of horizontal scroll bar, counts padding and border in box size */
+            }
+            .span33 {
+                width: 33%;
+                float: left;
+                margin-right: 10px;
+            }
+            /* ------------ Desktop Only Styles --------------- */
+            @media screen and (min-width: 600px) {
+
+                .container {
+                    background-color:  #334411;
+                    padding: 0px 15px;
+                }
+
+                .one-to-three {
+                    background-color: rgba(0,0,0,0);
+                    padding: 5px 15px; /* 1st is top/bottom, 2nd is left/right */
+                    width: 32.3%;
+                    margin: 0px 0.5%;  /* make the width of the 3 elements plus margins total 100% */
+                    float: left;
+                }
+
+                .clear {
+                    clear:both;
+                }
+                  #title { 
+                    font-size:28px;
+                    padding-top: 18px;
+
+                }
+                .navLink{
+                    display:inline;
+                    border:none;
+                    border-right: thin solid gray;
+                }
+                #navGroup {
+                    display:block;
+                    padding-top: 29px;
+                }
+                #navIcon {
+                    display:none;
+                }
+
+            }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+
+                // when user clicks the navIcon, it toggles (makes visible/invisible)
+                // the element after that (navGroup).
+                $("#navIcon").click(function () {  
+                    $(this).next().toggle(); // hide if showing, show if hiding. 
+                });
+
+                // make the navGroup is visible when resizing to >= 580 px (desktop).
+                // make the navGroup is invisible when resizing to < 580 px (mobile).
+                // there seems to be a 20 pixel discrepancy between width of titleNav
+                // and width of browser viewing area (that's why testing 560 not 580)
+                $(window).resize(function () {
+                    var wide = $('#titleNav').css("width");
+                    wide = parseInt(wide);
+                    //console.log("width " + wide);
+                    if (wide >= 580) {
+                        jQuery('#navGroup').css("display", "block");
+                        //console.log("show navGroup");
+                    } else {
+                        jQuery('#navGroup').css("display", "none");
+                    }
+                });
+            });
+        </script>
+
+    </head>
+    
+    <body>
+        <div  id="container">
+            <div id="titleNav">
+                <div id="title">
+                  Responsive Design Page
+                </div>
+                <div id="nav">
+                    <div id="navIcon">
+                        <img src="menuIconWhite.png" alt="" height ="43"width="42"/>
+                    </div>
+                    <div id="navGroup">
+                        <div class="navLink"><a href="..\index.html"> Home</a></div>
+                        <div class="navLink"><a href="..\lab.html">Lab</a></div>
+                        <div class="navLink"><a href="#page1">Intro</a></div>
+                        <div class="navLink"><a href="#page2">Lazy Cat</a></div>
+                        <div class="navLink"><a href="#page3">Cat Form</a></div>
+                    </div>
+                </div>  <!--  end of nav -->
+            </div>  <!--  end of titleNav -->
+
+
+       
+
+
+        <!-- Page 1 -->
+        <div id="page1" class="sng-page">
+
+            <h1>World of Cats</h1>
+
+            <p>
+                Welcome to the world of cats site. Enjoy the cat video below. Visit <a href="http://www.lolcats.com/"> here</a> for more cat pics 
+
+            </p>
+
+            <div id ="video">
+
+                <iframe width="640" height="360" src="https://www.youtube.com/embed/XyNlqQId-nk" frameborder="0" allowfullscreen ></iframe>
+
+            </div>
+
+        </div>
+
+        <!-- Page 2 -->
+        <div id="page2" class="sng-page">
+            <h1>Lazy Cat</h1>
+            <div class="span33">
+                <br/>
+                <img src="nita3.jpg" alt="" >
+            </div>
+            <div>
+                <p>
+                    Hi I'm Philadelphia's laziest cat. To adopt lazy kitties like me,  <a href='http://www.kawaiikittycafe.com/'> visit here</a>
+                </p>
+                <p>
+                    History of cats:
+                    cats have always been a source of fascination for mankind throughout history. Today cats have become one of the world's most popular pets perfectly suited to the lifestyle of our day. They are beautiful, enigmatic and easy-to-care for pets. But where and when did the domestic cat originate? This page will give you some insight into this question.
+
+                    It has been about 4000 years since the first cats were domesticated. The Ancient Egyptians were the first to keep and use cats to control vermin and other pests to protect stores of food. In Ancient Egypt, the cat was revered as a hunter and worshiped as gods and goddesses. The ancient Egyptians imposed the death penalty for killing cats and cats were also mummified before being buried.
+
+                    Other ancient civilisations later began to domesticate the cat and took tame felines to Italy where they slowly spread around Europe. Eventually, they arrived in the New World with the Pilgrims. The shorthaired domestic cat spread across the world from Egypt while longhaired cats came later from Turkey and Iran. The domestic cat also spread from India to China and Japan.
+
+                    Except for a short period of persecution in the Middle Ages when cats were associated with the devil, by the eighteenth century cats had become popular household pets world wide.
+
+                    The wild cats of today such as Lions and Tigers descended from early carnivores called miacids. From there the modern wild cat developed into three main types; the European wild cat, the African wild cat and the Asiatic desert cat. The domestic cat is thought to have evolved from the African wild cat because of its tabby markings.
+
+                    Domestic cats today still take many characteristics from their wild ancestors. The arresting eyes, body shape, feeding and grooming habits are the same along with the ability to pounce into action at any given moment. It is this link that makes the domestic cat so fascinating around the world.
+
+                    The non-pedigree domestic cat, the Moggie is the most popular house pet today with the black and white Moggie being the most popular followed by the black cat followed by the Tabby cat. There are also 36 recognised breeds of pedigree cats around the world with the Siamese cat being the most popular. Most homes today that keep pets have at least one cat in residence.
+                </p>       
+            </div>
+        </div>
+
+        <!-- Page 3 -->
+        <div id="page3" class="sng-page">
+            <h1>Cat Pics</h1>
+          
+                  <form name="myForm" method="post" action="http://www.temple.edu/cgi-bin/mail?tue59286@temple.edu">
+                <h3>Email me your favorite cat pics </h3>
+                <h4>Submit button sends you email (if you put your email address in the form's action attribute)</h4>
+                What is Your Name?   <input type="text" name="userName" placeholder="plain text input"/>  <br/> 
+                Are you a cat lover?      <input type="radio" name="catLover" value="Yes"  />   Yes    
+                <input type="radio" name="catLover"  value="No"  />    No  <br/> 
+                Are you a Temple University Student? <input type="checkbox" name="isCisMajor"  />  <br/> 
+              
+                Submit a link to your favorite cat pictures and videos <br/>
+                <textarea name="inputcomments" cols="45" rows="5" >Submit your links here</textarea> <br/> <br/>
+                <input type="submit" value="Share" />
+            </form>
+        </div>
+
+        <footer id="footer">
+            David Seng
+
+        </footer>
+
+
+    </body>
+</html>
